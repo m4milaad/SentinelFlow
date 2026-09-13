@@ -29,6 +29,13 @@ public class ApiExceptionHandler {
                 .body(new ApiErrorResponse("Invalid request"));
     }
 
+    @ExceptionHandler(org.springframework.security.access.AccessDeniedException.class)
+    public ResponseEntity<ApiErrorResponse> handleAccessDenied(org.springframework.security.access.AccessDeniedException exception) {
+        logger.warn("Access denied", exception);
+        return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                .body(new ApiErrorResponse("Access denied"));
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiErrorResponse> handleUnexpectedException(Exception exception) {
         logger.error("Unhandled API exception", exception);

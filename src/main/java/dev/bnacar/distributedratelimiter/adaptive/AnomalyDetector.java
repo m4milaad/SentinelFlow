@@ -1,7 +1,10 @@
 package dev.bnacar.distributedratelimiter.adaptive;
 
+import dev.bnacar.distributedratelimiter.security.abuse.AnomalyEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -20,10 +23,20 @@ public class AnomalyDetector {
     // Store baseline statistics for anomaly detection
     private final Map<String, TrafficStats> baselineStats = new ConcurrentHashMap<>();
     private final Map<String, List<Double>> recentRates = new ConcurrentHashMap<>();
+    private final ApplicationEventPublisher eventPublisher;
     
     private static final int BASELINE_WINDOW = 1000; // Number of data points for baseline
     private static final double Z_SCORE_THRESHOLD = 3.0; // 3-sigma rule
     
+    public AnomalyDetector() {
+        this(null);
+    }
+
+    @Autowired
+    public AnomalyDetector(@Autowired(required = false) ApplicationEventPublisher eventPublisher) {
+        this.eventPublisher = eventPublisher;
+    }
+
     /**
      * Record traffic rate for anomaly detection
      */
@@ -74,13 +87,20 @@ public class AnomalyDetector {
                        key, type, severity, zScore);
         }
         
-        return AnomalyScore.builder()
+        AnomalyScore score = AnomalyScore.builder()
             .isAnomaly(isAnomaly)
             .severity(severity)
             .type(type)
             .confidence(confidence)
             .zScore(zScore)
             .build();
+
+        // Publish event for abuse mitigation layer
+        if (isAnomaly && eventPublisher != null) {
+            eventPublisher.publishEvent(new AnomalyEvent(this, key, score));
+        }
+
+        return score;
     }
     
     /**

@@ -1,0 +1,48 @@
+# Observability stack — extends the base docker-compose.yml
+# Usage: docker compose -f docker-compose.yml -f docker-compose.observability.yml up
+
+services:
+  app:
+    environment:
+      - ADMIN_JWT_SIGNING_KEY=docker-observability-demo-key-change-in-production
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: traffic-sentinel-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.retention.time=7d'
+    depends_on:
+      app:
+        condition: service_healthy
+    networks:
+      - rate-limiter-network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: traffic-sentinel-grafana
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=sentinel
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/traffic-sentinel-overview.json:/var/lib/grafana/dashboards/traffic-sentinel-overview.json:ro
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    networks:
+      - rate-limiter-network
+
+volumes:
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local

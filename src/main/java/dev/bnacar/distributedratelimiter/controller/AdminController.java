@@ -16,6 +16,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,6 +54,7 @@ public class AdminController {
      * Get current limits for a specific key.
      */
     @GetMapping("/limits/{key}")
+    @PreAuthorize("hasRole('VIEWER')")
     @Operation(summary = "Get rate limit configuration for a specific key",
                description = "Retrieves the current rate limiting configuration for the specified key")
     @ApiResponses(value = {
@@ -86,6 +88,7 @@ public class AdminController {
      * Update limits for a specific key.
      */
     @PutMapping("/limits/{key}")
+    @PreAuthorize("hasRole('OPERATOR')")
     @Operation(summary = "Update rate limit configuration for a specific key",
                description = "Sets new rate limiting configuration for the specified key")
     @ApiResponses(value = {
@@ -130,6 +133,7 @@ public class AdminController {
      * Remove limits for a specific key.
      */
     @DeleteMapping("/limits/{key}")
+    @PreAuthorize("hasRole('OPERATOR')")
     @Operation(summary = "Remove rate limit configuration for a specific key",
                description = "Removes custom rate limiting configuration for the specified key, reverting to default settings")
     @ApiResponses(value = {
@@ -161,6 +165,7 @@ public class AdminController {
      * List all active keys with statistics.
      */
     @GetMapping("/keys")
+    @PreAuthorize("hasRole('VIEWER')")
     @Operation(summary = "List all active rate limiting keys",
                description = "Retrieves statistics for all currently active rate limiting keys")
     @ApiResponse(responseCode = "200", 
