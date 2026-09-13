@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="sentinelflow-logo.png" alt="SentinelFlow Logo" width="200" height="200">
+<img src="sentinelflow-logo.png" alt="SentinelFlow Logo" width="400" height="200">
 
 # 🚀 SentinelFlow
 
