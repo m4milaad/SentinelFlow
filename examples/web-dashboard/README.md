@@ -91,7 +91,7 @@ A comprehensive, real-time dashboard for monitoring and managing distributed rat
 
 ### Real Backend APIs (✅ Production Ready)
 
-The dashboard connects to a distributed rate limiter backend running on **http://localhost:8080** with the following features:
+The dashboard connects to a sentinelflow backend running on **http://localhost:8080** with the following features:
 
 #### **Dashboard Page** (`/`)
 - **Status**: ✅ **Fully Connected to Real Backend**
@@ -151,7 +151,7 @@ The dashboard connects to a distributed rate limiter backend running on **http:/
 - **Parameters**:
   - `concurrentThreads`, `requestsPerThread`, `durationSeconds`
   - `tokensPerRequest`, `delayBetweenRequestsMs`, `keyPrefix`
-- **Returns**: Real performance data from distributed rate limiter
+- **Returns**: Real performance data from sentinelflow
 
 ### Demo/Educational Features (⚠️ Mock Data)
 
@@ -253,7 +253,7 @@ To implement real analytics features, the backend needs:
    - Date range filtering
    - Compressed archive downloads
 
-See [GitHub Issue #XXX](https://github.com/uppnrise/distributed-rate-limiter/issues) for implementation tracking.
+See [GitHub Issue #XXX](https://github.com/m4milaad/sentinelflow/issues) for implementation tracking.
 
 ## 🚀 Quick Start
 
@@ -261,7 +261,7 @@ See [GitHub Issue #XXX](https://github.com/uppnrise/distributed-rate-limiter/iss
 - **Node.js 18+** and npm
 - **Java 21** for backend (required for real data)
 - **Docker** (optional, for Redis)
-- A distributed rate limiter backend running on `localhost:8080`
+- A sentinelflow backend running on `localhost:8080`
 
 ### Development Workflow
 
@@ -269,7 +269,7 @@ See [GitHub Issue #XXX](https://github.com/uppnrise/distributed-rate-limiter/iss
 
 ```bash
 # From project root
-cd /Users/upp/Development/workspaces/open-source/distributed-rate-limiter
+cd /Users/upp/Development/workspaces/open-source/sentinelflow
 
 # Start Redis (optional - backend has in-memory fallback)
 docker-compose up -d redis
@@ -278,7 +278,7 @@ docker-compose up -d redis
 ./mvnw spring-boot:run
 
 # Backend will start on http://localhost:8080
-# Wait for "Started DistributedRateLimiterApplication" message
+# Wait for "Started SentinelFlowApplication" message
 ```
 
 #### 2. Start the Frontend
@@ -328,7 +328,7 @@ curl -X POST http://localhost:8080/api/ratelimit/check \
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd distributed-rate-limiter/examples/web-dashboard
+cd sentinelflow/examples/web-dashboard
 
 # Install dependencies
 npm install
@@ -498,7 +498,7 @@ CMD ["npm", "run", "preview"]
 
 ## 📖 API Integration
 
-The dashboard integrates with a distributed rate limiter backend. See [API_INTEGRATION.md](./API_INTEGRATION.md) for:
+The dashboard integrates with a sentinelflow backend. See [API_INTEGRATION.md](./API_INTEGRATION.md) for:
 - Complete API endpoint documentation
 - Request/response schemas
 - Authentication requirements

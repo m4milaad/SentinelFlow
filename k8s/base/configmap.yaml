@@ -4,13 +4,13 @@ metadata:
   name: rate-limiter-config
   namespace: rate-limiter
   labels:
-    app.kubernetes.io/name: distributed-rate-limiter
+    app.kubernetes.io/name: sentinelflow
     app.kubernetes.io/component: config
 data:
   application.properties: |
     # Spring Boot Configuration
     spring.profiles.active=production
-    spring.application.name=distributed-rate-limiter
+    spring.application.name=sentinelflow
     
     # Server Configuration
     server.port=8080
@@ -46,7 +46,7 @@ data:
     management.metrics.export.prometheus.enabled=true
     
     # Logging Configuration
-    logging.level.dev.bnacar.distributedratelimiter=INFO
+    logging.level.io.sentinelflow=INFO
     logging.level.org.springframework.data.redis=WARN
     logging.pattern.console=%d{HH:mm:ss.SSS} [%thread] %-5level [%X{traceId:-},%X{spanId:-}] %logger{36} - %msg%n
     logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%X{traceId:-},%X{spanId:-}] %logger{36} - %msg%n

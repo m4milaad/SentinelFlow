@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-# Redis Recovery Script for Distributed Rate Limiter
+# Redis Recovery Script for SentinelFlow
 # This script restores Redis data from backup files
 
 # Configuration
@@ -28,7 +28,7 @@ usage() {
     cat << EOF
 Usage: $0 [OPTIONS]
 
-Redis Recovery Script for Distributed Rate Limiter
+Redis Recovery Script for SentinelFlow
 
 OPTIONS:
     -f, --file BACKUP_FILE      Path to backup file (required)

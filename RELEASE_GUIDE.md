@@ -1,14 +1,14 @@
-# Distributed Rate Limiter v1.0.0 - Release Summary
+# SentinelFlow v1.0.0 - Release Summary
 
 ## 🎯 **Best Deployment Options for v1.0.0**
 
 ### **1. JAR File (Recommended for Most Use Cases)**
 ```bash
 # Quick deployment
-java -jar distributed-rate-limiter-1.0.0.jar
+java -jar sentinelflow-1.0.0.jar
 
 # Production deployment with custom Redis
-java -jar distributed-rate-limiter-1.0.0.jar \
+java -jar sentinelflow-1.0.0.jar \
   --spring.data.redis.host=your-redis.company.com \
   --spring.data.redis.port=6379 \
   --server.port=8080
@@ -35,7 +35,7 @@ docker-compose up -d
 # Standalone container
 docker run -p 8080:8080 \
   -e SPRING_DATA_REDIS_HOST=your-redis-host \
-  ghcr.io/uppnrise/distributed-rate-limiter:1.0.0
+  ghcr.io/m4milaad/sentinelflow:1.0.0
 ```
 
 **✅ Best For:**
@@ -60,8 +60,8 @@ Use the automated release script:
 ./build-release.sh
 
 # This creates:
-# - target/distributed-rate-limiter-1.0.0.jar
-# - Docker image: ghcr.io/uppnrise/distributed-rate-limiter:1.0.0
+# - target/sentinelflow-1.0.0.jar
+# - Docker image: ghcr.io/m4milaad/sentinelflow:1.0.0
 # - release-1.0.0/ directory with deployment package
 ```
 
@@ -70,7 +70,7 @@ Use the automated release script:
 ### **Complete Release Package (`release-1.0.0/`)**
 ```
 release-1.0.0/
-├── distributed-rate-limiter-1.0.0.jar    # Production JAR
+├── sentinelflow-1.0.0.jar    # Production JAR
 ├── docker-compose.yml                     # Complete stack
 ├── Dockerfile                             # Image definition
 ├── run-jar.sh                            # JAR startup script
@@ -88,7 +88,7 @@ release-1.0.0/
 ### **Scenario 1: Enterprise On-Premises**
 ```bash
 # 1. Deploy JAR on application servers
-java -jar distributed-rate-limiter-1.0.0.jar \
+java -jar sentinelflow-1.0.0.jar \
   --spring.data.redis.host=redis.internal.company.com \
   --spring.profiles.active=production
 
@@ -121,7 +121,7 @@ spec:
     spec:
       containers:
       - name: rate-limiter
-        image: ghcr.io/uppnrise/distributed-rate-limiter:1.0.0
+        image: ghcr.io/m4milaad/sentinelflow:1.0.0
         ports:
         - containerPort: 8080
         env:
@@ -155,7 +155,7 @@ spec:
 # application-development.properties
 spring.data.redis.host=localhost
 spring.data.redis.port=6379
-logging.level.dev.bnacar.distributedratelimiter=DEBUG
+logging.level.io.sentinelflow=DEBUG
 management.endpoint.health.show-details=always
 ```
 
@@ -239,7 +239,7 @@ spec:
 ## 🎉 **What's Next**
 
 ### **Immediate Actions**
-1. **Test the JAR**: `java -jar target/distributed-rate-limiter-1.0.0.jar`
+1. **Test the JAR**: `java -jar target/sentinelflow-1.0.0.jar`
 2. **Test Docker**: `./build-release.sh` and verify output
 3. **Review Documentation**: Check README.md and API docs
 4. **Plan Deployment**: Choose JAR vs Docker based on your infrastructure

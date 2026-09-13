@@ -1,6 +1,6 @@
 # Performance Tuning Guide
 
-This guide covers performance optimization strategies, configuration options, and benchmarking for the Distributed Rate Limiter service.
+This guide covers performance optimization strategies, configuration options, and benchmarking for the SentinelFlow service.
 
 ## Performance Metrics
 

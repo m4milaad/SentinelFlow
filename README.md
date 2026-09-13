@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="drl-logo.png" alt="Distributed Rate Limiter Logo" width="200" height="200">
+<img src="sentinelflow-logo.png" alt="SentinelFlow Logo" width="200" height="200">
 
-# 🚀 Distributed Rate Limiter
+# 🚀 SentinelFlow
 
 **High-performance, Redis-backed rate limiter service with multiple algorithms and REST API**
 
@@ -10,7 +10,7 @@
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.11-brightgreen.svg)](https://spring.io/projects/spring-boot)
 [![Redis](https://img.shields.io/badge/Redis-8.x-red.svg)](https://redis.io/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
-[![Build Status](https://github.com/uppnrise/distributed-rate-limiter/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/uppnrise/distributed-rate-limiter/actions)
+[![Build Status](https://github.com/m4milaad/sentinelflow/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/m4milaad/sentinelflow/actions)
 
 [📦 Download](#-installation) • [📖 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [💡 Examples](#-examples)
 
@@ -20,7 +20,7 @@
 
 ## 🎯 Overview
 
-A production-ready distributed rate limiter supporting **five algorithms** (Token Bucket, Sliding Window, Fixed Window, Leaky Bucket, and Composite) with Redis backing for high-performance API protection. Perfect for microservices, SaaS platforms, and any application requiring sophisticated rate limiting with algorithm flexibility, multi-dimensional limits, and traffic shaping capabilities.
+A production-ready sentinelflow supporting **five algorithms** (Token Bucket, Sliding Window, Fixed Window, Leaky Bucket, and Composite) with Redis backing for high-performance API protection. Perfect for microservices, SaaS platforms, and any application requiring sophisticated rate limiting with algorithm flexibility, multi-dimensional limits, and traffic shaping capabilities.
 
 ### ✨ Key Features
 
@@ -59,7 +59,7 @@ A production-ready distributed rate limiter supporting **five algorithms** (Toke
 
 ### 🎨 Interactive Web Dashboard
 
-A modern, real-time React-based dashboard for monitoring and managing your distributed rate limiter.
+A modern, real-time React-based dashboard for monitoring and managing your sentinelflow.
 
 <div align="center">
 
@@ -189,31 +189,31 @@ Educational page for understanding rate limiting algorithms:
 
 ```bash
 # Download the latest release
-wget https://github.com/uppnrise/distributed-rate-limiter/releases/download/v1.4.0/distributed-rate-limiter-1.4.0.jar
+wget https://github.com/m4milaad/sentinelflow/releases/download/v1.4.0/sentinelflow-1.4.0.jar
 
 # Verify checksum (optional)
-wget https://github.com/uppnrise/distributed-rate-limiter/releases/download/v1.4.0/distributed-rate-limiter-1.4.0.jar.sha256
-sha256sum -c distributed-rate-limiter-1.4.0.jar.sha256
+wget https://github.com/m4milaad/sentinelflow/releases/download/v1.4.0/sentinelflow-1.4.0.jar.sha256
+sha256sum -c sentinelflow-1.4.0.jar.sha256
 ```
 
 ### Option 2: Docker
 
 ```bash
 # Run the image directly
-docker run -p 8080:8080 ghcr.io/uppnrise/distributed-rate-limiter:1.4.0
+docker run -p 8080:8080 ghcr.io/m4milaad/sentinelflow:1.4.0
 
 # Or use the compose file from the repository
-curl -O https://raw.githubusercontent.com/uppnrise/distributed-rate-limiter/v1.4.0/docker-compose.yml
+curl -O https://raw.githubusercontent.com/m4milaad/sentinelflow/v1.4.0/docker-compose.yml
 docker compose up -d
 ```
 
 ### Option 3: Build from Source
 
 ```bash
-git clone https://github.com/uppnrise/distributed-rate-limiter.git
-cd distributed-rate-limiter
+git clone https://github.com/m4milaad/sentinelflow.git
+cd sentinelflow
 ./mvnw clean install
-java -jar target/distributed-rate-limiter-1.4.0.jar
+java -jar target/sentinelflow-1.4.0.jar
 ```
 
 ---
@@ -230,10 +230,10 @@ java -jar target/distributed-rate-limiter-1.4.0.jar
 
 ```bash
 # Simple startup (embedded configuration)
-java -jar distributed-rate-limiter-1.4.0.jar
+java -jar sentinelflow-1.4.0.jar
 
 # With external Redis
-java -jar distributed-rate-limiter-1.4.0.jar \
+java -jar sentinelflow-1.4.0.jar \
   --spring.data.redis.host=your-redis-server \
   --spring.data.redis.port=6379
 ```
@@ -259,7 +259,7 @@ When health details are enabled, the same endpoint can also include component-le
 
 ```bash
 # Start the backend (if not already running)
-java -jar distributed-rate-limiter-1.4.0.jar
+java -jar sentinelflow-1.4.0.jar
 
 # In a new terminal, start the dashboard
 cd examples/web-dashboard
@@ -823,7 +823,7 @@ ratelimiter.security.ip.blacklist=192.168.1.100
 version: '3.8'
 services:
   rate-limiter:
-    image: ghcr.io/uppnrise/distributed-rate-limiter:1.4.0
+    image: ghcr.io/m4milaad/sentinelflow:1.4.0
     ports:
       - "8080:8080"
     environment:
@@ -858,7 +858,7 @@ spec:
     spec:
       containers:
       - name: rate-limiter
-        image: ghcr.io/uppnrise/distributed-rate-limiter:1.4.0
+        image: ghcr.io/m4milaad/sentinelflow:1.4.0
         ports:
         - containerPort: 8080
         env:
@@ -968,8 +968,8 @@ The project includes comprehensive integration tests using Testcontainers:
 
 ```bash
 # Clone the repository
-git clone https://github.com/uppnrise/distributed-rate-limiter.git
-cd distributed-rate-limiter
+git clone https://github.com/m4milaad/sentinelflow.git
+cd sentinelflow
 
 # Install Java 21 (required)
 sudo apt update && sudo apt install -y openjdk-21-jdk
@@ -1037,7 +1037,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## 🆘 Support
 
 - **Documentation**: Check the [docs/](docs/) directory for comprehensive guides
-- **Issues**: Report bugs and request features via [GitHub Issues](https://github.com/uppnrise/distributed-rate-limiter/issues)
+- **Issues**: Report bugs and request features via [GitHub Issues](https://github.com/m4milaad/sentinelflow/issues)
 - **Examples**: See [docs/examples/](docs/examples/) for integration examples
 
 ---
@@ -1046,6 +1046,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 **Built with ❤️ for the developer community**
 
-[⭐ Star this project](https://github.com/uppnrise/distributed-rate-limiter) if you find it useful!
+[⭐ Star this project](https://github.com/m4milaad/sentinelflow) if you find it useful!
 
 </div>

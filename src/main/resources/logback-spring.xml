@@ -19,7 +19,7 @@
                 <pattern>
                     <pattern>
                         {
-                        "service": "distributed-rate-limiter",
+                        "service": "sentinelflow",
                         "environment": "${spring.profiles.active:-default}"
                         }
                     </pattern>
@@ -37,9 +37,9 @@
 
     <!-- File Appender for structured logs -->
     <appender name="FILE_JSON" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/distributed-rate-limiter.json</file>
+        <file>logs/sentinelflow.json</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>logs/distributed-rate-limiter.%d{yyyy-MM-dd}.json.gz</fileNamePattern>
+            <fileNamePattern>logs/sentinelflow.%d{yyyy-MM-dd}.json.gz</fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
         <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
@@ -57,7 +57,7 @@
                 <pattern>
                     <pattern>
                         {
-                        "service": "distributed-rate-limiter",
+                        "service": "sentinelflow",
                         "environment": "${spring.profiles.active:-default}"
                         }
                     </pattern>
@@ -81,8 +81,8 @@
     </springProfile>
 
     <!-- Rate limiter specific logging - use full package names -->
-    <logger name="dev.bnacar.distributedratelimiter.ratelimit" level="${logging.level.dev.bnacar.distributedratelimiter.ratelimit:-INFO}"/>
-    <logger name="dev.bnacar.distributedratelimiter.monitoring" level="${logging.level.dev.bnacar.distributedratelimiter.monitoring:-INFO}"/>
-    <logger name="dev.bnacar.distributedratelimiter.observability" level="${logging.level.dev.bnacar.distributedratelimiter.observability:-INFO}"/>
+    <logger name="io.sentinelflow.ratelimit" level="${logging.level.io.sentinelflow.ratelimit:-INFO}"/>
+    <logger name="io.sentinelflow.monitoring" level="${logging.level.io.sentinelflow.monitoring:-INFO}"/>
+    <logger name="io.sentinelflow.observability" level="${logging.level.io.sentinelflow.observability:-INFO}"/>
 
 </configuration>

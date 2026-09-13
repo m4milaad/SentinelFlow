@@ -6,7 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/name: redis
     app.kubernetes.io/component: database
-    app.kubernetes.io/part-of: distributed-rate-limiter
+    app.kubernetes.io/part-of: sentinelflow
 spec:
   replicas: 1
   strategy:
@@ -141,7 +141,7 @@ metadata:
   labels:
     app.kubernetes.io/name: redis
     app.kubernetes.io/component: database
-    app.kubernetes.io/part-of: distributed-rate-limiter
+    app.kubernetes.io/part-of: sentinelflow
   annotations:
     prometheus.io/scrape: "true"
     prometheus.io/port: "9121"

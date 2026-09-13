@@ -1,11 +1,11 @@
-# Contributing to Distributed Rate Limiter
+# Contributing to SentinelFlow
 
-Thank you for your interest in contributing to the Distributed Rate Limiter! We welcome contributions from developers of all experience levels.
+Thank you for your interest in contributing to the SentinelFlow! We welcome contributions from developers of all experience levels.
 
 ## 🚀 Quick Start
 
 1. **Fork** the repository
-2. **Clone** your fork: `git clone https://github.com/your-username/distributed-rate-limiter.git`
+2. **Clone** your fork: `git clone https://github.com/your-username/sentinelflow.git`
 3. **Install** Java 21 and Docker
 4. **Run tests**: `./mvnw test`
 5. **Start contributing**!
@@ -38,8 +38,8 @@ This project follows the [Contributor Covenant Code of Conduct](https://www.cont
 
 ```bash
 # Clone your fork
-git clone https://github.com/your-username/distributed-rate-limiter.git
-cd distributed-rate-limiter
+git clone https://github.com/your-username/sentinelflow.git
+cd sentinelflow
 
 # Verify Java 21
 java -version
@@ -57,7 +57,7 @@ docker run -d --name redis -p 6379:6379 redis:7-alpine
 ### Project Structure
 
 ```
-distributed-rate-limiter/
+sentinelflow/
 ├── src/main/java/                 # Application source code
 │   ├── controller/                # REST API controllers
 │   ├── ratelimit/                # Core rate limiting logic
@@ -349,8 +349,8 @@ Contributors will be:
 ## 📞 Contact
 
 - **Maintainer**: Burhanettin Nacar
-- **GitHub**: [@uppnrise](https://github.com/uppnrise)
-- **Issues**: [GitHub Issues](https://github.com/uppnrise/distributed-rate-limiter/issues)
+- **GitHub**: [@m4milaad](https://github.com/m4milaad)
+- **Issues**: [GitHub Issues](https://github.com/m4milaad/sentinelflow/issues)
 
 ---
 

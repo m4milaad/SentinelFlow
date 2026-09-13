@@ -4,12 +4,12 @@ metadata:
   name: rate-limiter-network-policy
   namespace: rate-limiter
   labels:
-    app.kubernetes.io/name: distributed-rate-limiter
+    app.kubernetes.io/name: sentinelflow
     app.kubernetes.io/component: security
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: distributed-rate-limiter
+      app.kubernetes.io/name: sentinelflow
   policyTypes:
   - Ingress
   - Egress
@@ -80,7 +80,7 @@ spec:
   - from:
     - podSelector:
         matchLabels:
-          app.kubernetes.io/name: distributed-rate-limiter
+          app.kubernetes.io/name: sentinelflow
     ports:
     - protocol: TCP
       port: 6379

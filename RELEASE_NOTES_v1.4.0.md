@@ -1,4 +1,4 @@
-# Distributed Rate Limiter v1.4.0 Release Notes
+# SentinelFlow v1.4.0 Release Notes
 
 Release date: 2026-09-05
 

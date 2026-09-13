@@ -6,7 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/name: redis-backup
     app.kubernetes.io/component: backup
-    app.kubernetes.io/part-of: distributed-rate-limiter
+    app.kubernetes.io/part-of: sentinelflow
 spec:
   schedule: "0 2 * * *"  # Daily at 2 AM
   timeZone: "UTC"
@@ -34,7 +34,7 @@ spec:
               type: RuntimeDefault
           containers:
           - name: backup
-            image: ghcr.io/uppnrise/distributed-rate-limiter:backup-tools
+            image: ghcr.io/m4milaad/sentinelflow:backup-tools
             imagePullPolicy: Always
             command: ["/scripts/redis-backup.sh"]
             env:

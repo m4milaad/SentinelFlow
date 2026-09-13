@@ -1,6 +1,6 @@
 # Docker Usage Guide
 
-This guide explains how to run the Distributed Rate Limiter application using Docker.
+This guide explains how to run the SentinelFlow application using Docker.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ For production, you can use the pre-built Docker image:
 
 ```bash
 # Build the application image
-docker build -t distributed-rate-limiter:latest .
+docker build -t sentinelflow:latest .
 
 # Start with docker-compose
 docker compose up -d
@@ -183,10 +183,10 @@ The Dockerfile uses a multi-stage build:
    ```bash
    # Option 1: Build JAR locally first
    ./mvnw package -DskipTests -B
-   docker build -t distributed-rate-limiter:latest .
+   docker build -t sentinelflow:latest .
    
    # Option 2: Use Docker build with network mode
-   docker build --network=host -t distributed-rate-limiter:latest .
+   docker build --network=host -t sentinelflow:latest .
    
    # Option 3: Use Docker Compose which handles networking
    docker compose build
@@ -225,7 +225,7 @@ docker volume ls
 docker compose exec redis redis-cli BGSAVE
 
 # Volume location
-docker volume inspect distributed-rate-limiter_redis-data
+docker volume inspect sentinelflow_redis-data
 ```
 
 ## Scaling

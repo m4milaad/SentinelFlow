@@ -4,7 +4,7 @@ metadata:
   name: rate-limiter-hpa
   namespace: rate-limiter
   labels:
-    app.kubernetes.io/name: distributed-rate-limiter
+    app.kubernetes.io/name: sentinelflow
     app.kubernetes.io/component: autoscaling
 spec:
   scaleTargetRef:

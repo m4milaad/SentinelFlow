@@ -12,9 +12,9 @@ permissions:
 jobs:
   scan-maven:
     name: Scan Maven project
-    uses: uppnrise/snyk-auto-remediate/.github/workflows/snyk-remediate.reusable.yml@f14d5e8e7cc0f81dddb4c154dcb05cef4a6f78ad
+    uses: m4milaad/snyk-auto-remediate/.github/workflows/snyk-remediate.reusable.yml@f14d5e8e7cc0f81dddb4c154dcb05cef4a6f78ad
     with:
-      target-repository: uppnrise/distributed-rate-limiter
+      target-repository: m4milaad/sentinelflow
       target-branches: main
       engine-ref: f14d5e8e7cc0f81dddb4c154dcb05cef4a6f78ad
       report-id: maven
@@ -29,9 +29,9 @@ jobs:
 
   scan-dashboard:
     name: Scan npm dashboard
-    uses: uppnrise/snyk-auto-remediate/.github/workflows/snyk-remediate.reusable.yml@f14d5e8e7cc0f81dddb4c154dcb05cef4a6f78ad
+    uses: m4milaad/snyk-auto-remediate/.github/workflows/snyk-remediate.reusable.yml@f14d5e8e7cc0f81dddb4c154dcb05cef4a6f78ad
     with:
-      target-repository: uppnrise/distributed-rate-limiter
+      target-repository: m4milaad/sentinelflow
       target-branches: main
       engine-ref: f14d5e8e7cc0f81dddb4c154dcb05cef4a6f78ad
       report-id: dashboard

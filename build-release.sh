@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Distributed Rate Limiter v1.4.0 Release Script
+# SentinelFlow v1.4.0 Release Script
 # This script builds production-ready artifacts for deployment
 
 set -e
 
-echo "🚀 Building Distributed Rate Limiter v1.4.0 Release"
+echo "🚀 Building SentinelFlow v1.4.0 Release"
 echo "=================================================="
 
 # Colors for output
@@ -17,8 +17,8 @@ NC='\033[0m' # No Color
 
 # Configuration
 VERSION="1.4.0"
-PROJECT_NAME="distributed-rate-limiter"
-DOCKER_REGISTRY="ghcr.io/uppnrise"
+PROJECT_NAME="sentinelflow"
+DOCKER_REGISTRY="ghcr.io/m4milaad"
 
 echo -e "${BLUE}📋 Release Configuration:${NC}"
 echo "  Version: ${VERSION}"
@@ -131,7 +131,7 @@ cat > ${RELEASE_DIR}/run-jar.sh << 'EOF'
 # Start the rate limiter JAR file
 # Make sure Redis is running on localhost:6379
 
-echo "🚀 Starting Distributed Rate Limiter v1.4.0"
+echo "🚀 Starting SentinelFlow v1.4.0"
 echo "============================================="
 
 # Check if Redis is running
@@ -143,14 +143,14 @@ if ! nc -z localhost 6379 2>/dev/null; then
 fi
 
 # Start the application
-java -jar distributed-rate-limiter-1.4.0.jar
+java -jar sentinelflow-1.4.0.jar
 EOF
 
 cat > ${RELEASE_DIR}/run-docker.sh << 'EOF'
 #!/bin/bash
 # Start the rate limiter using Docker Compose
 
-echo "🚀 Starting Distributed Rate Limiter v1.4.0 with Docker"
+echo "🚀 Starting SentinelFlow v1.4.0 with Docker"
 echo "======================================================="
 
 # Start services
@@ -174,7 +174,7 @@ chmod +x ${RELEASE_DIR}/run-docker.sh
 
 # Create deployment instructions
 cat > ${RELEASE_DIR}/DEPLOYMENT.md << 'EOF'
-# Distributed Rate Limiter v1.4.0 - Deployment Guide
+# SentinelFlow v1.4.0 - Deployment Guide
 
 ## Quick Start Options
 
@@ -190,7 +190,7 @@ cat > ${RELEASE_DIR}/DEPLOYMENT.md << 'EOF'
 
 **Custom configuration:**
 ```bash
-java -jar distributed-rate-limiter-1.4.0.jar \
+java -jar sentinelflow-1.4.0.jar \
   --spring.data.redis.host=your-redis-host \
   --spring.data.redis.port=6379 \
   --server.port=8080
@@ -241,13 +241,13 @@ Configure via REST API or application properties. See CONFIGURATION.md for detai
 ## Support
 
 - Documentation: See included README.md and CONFIGURATION.md
-- Issues: https://github.com/uppnrise/distributed-rate-limiter/issues
+- Issues: https://github.com/m4milaad/sentinelflow/issues
 - Examples: docs/examples/ directory in the main repository
 EOF
 
 # Create release summary
 cat > ${RELEASE_DIR}/RELEASE_NOTES.md << 'EOF'
-# Distributed Rate Limiter v1.4.0 Release Notes
+# SentinelFlow v1.4.0 Release Notes
 
 Release date: 2026-09-05
 

@@ -1,6 +1,6 @@
 # Load Testing & Performance Baseline Documentation
 
-This document describes the load testing infrastructure and performance baseline management for the Distributed Rate Limiter service.
+This document describes the load testing infrastructure and performance baseline management for the SentinelFlow service.
 
 ## Overview
 
@@ -51,14 +51,14 @@ The project uses [Gatling](https://gatling.io/) for professional-grade load test
 ./mvnw spring-boot:run
 
 # Run basic load test
-./mvnw gatling:test -Dgatling.simulationClass=dev.bnacar.distributedratelimiter.loadtest.BasicLoadTest
+./mvnw gatling:test -Dgatling.simulationClass=io.sentinelflow.loadtest.BasicLoadTest
 
 # Run stress test
-./mvnw gatling:test -Dgatling.simulationClass=dev.bnacar.distributedratelimiter.loadtest.StressTest
+./mvnw gatling:test -Dgatling.simulationClass=io.sentinelflow.loadtest.StressTest
 
 # Custom configuration
 ./mvnw gatling:test \
-  -Dgatling.simulationClass=dev.bnacar.distributedratelimiter.loadtest.BasicLoadTest \
+  -Dgatling.simulationClass=io.sentinelflow.loadtest.BasicLoadTest \
   -Dload.test.baseUrl=http://localhost:8080 \
   -Dload.test.duration=60 \
   -Dload.test.maxUsers=100

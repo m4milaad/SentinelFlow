@@ -1,4 +1,4 @@
-# Distributed Rate Limiter
+# SentinelFlow
 
 Production-ready distributed rate limiting service with REST API, **five-algorithm support** (Token Bucket, Sliding Window, Fixed Window, Leaky Bucket, Composite), Redis backend, comprehensive monitoring, and 265+ tests.
 
@@ -21,7 +21,7 @@ Always reference these instructions first and fallback to search or bash command
   - `LeakyBucket.java` (traffic shaping)
   - `CompositeRateLimiter.java` (multi-algorithm composition)
 - **Distributed Backend**: `RedisRateLimiterBackend.java` for production, `InMemoryRateLimiterBackend.java` for testing
-- **Service Layer**: `RateLimiterService.java` coordinates rate limit checks with `DistributedRateLimiterService.java` and `CompositeRateLimiterService.java`
+- **Service Layer**: `RateLimiterService.java` coordinates rate limit checks with `SentinelFlowService.java` and `CompositeRateLimiterService.java`
 - **Configuration**: `ConfigurationResolver.java` handles dynamic per-key and pattern-based limits
 - **Controllers**: 6 REST endpoints - RateLimit, Admin, Config, Metrics, Performance, Benchmark
 
@@ -135,7 +135,7 @@ java -version  # Must show 21.x.x
 ### Application Startup
 - **Development**: `./mvnw spring-boot:run` (port 8080, 2.2s startup)
 - **With Redis**: `docker-compose up -d redis && ./mvnw spring-boot:run`
-- **Production JAR**: `java -jar target/distributed-rate-limiter-1.1.0.jar`
+- **Production JAR**: `java -jar target/sentinelflow-1.1.0.jar`
 
 ### API Testing
 - **Swagger UI**: http://localhost:8080/swagger-ui/index.html (18 documented endpoints)
@@ -157,7 +157,7 @@ java -version  # Must show 21.x.x
 
 ### Test Categories (76+ test classes)
 - **Unit Tests**: `TokenBucketTest`, `SlidingWindowTest`, `FixedWindowTest`, `LeakyBucketTest`, `CompositeRateLimiterTest`, `ConfigurationResolverTest`
-- **Integration Tests**: `DistributedRateLimiterServiceTest`, `RedisConnectionPoolTest` 
+- **Integration Tests**: `SentinelFlowServiceTest`, `RedisConnectionPoolTest` 
 - **Performance Tests**: `ConcurrentPerformanceTest`, `MemoryUsageTest`, `LoadTestSuite`
 - **Controller Tests**: Each of 6 controllers has dedicated test class
 - **Documentation Tests**: `ApiDocumentationTest`, `DocumentationCompletenessTest`

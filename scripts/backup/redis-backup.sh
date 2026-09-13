@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-# Redis Backup Script for Distributed Rate Limiter
+# Redis Backup Script for SentinelFlow
 # This script creates automated backups of Redis data with retention management
 
 # Configuration

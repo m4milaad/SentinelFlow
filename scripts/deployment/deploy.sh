@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-# Deployment Script for Distributed Rate Limiter
+# Deployment Script for SentinelFlow
 # This script deploys the rate limiter to different environments
 
 # Configuration
@@ -28,7 +28,7 @@ usage() {
     cat << EOF
 Usage: $0 ENVIRONMENT [OPTIONS]
 
-Deploy Distributed Rate Limiter to Kubernetes
+Deploy SentinelFlow to Kubernetes
 
 ENVIRONMENTS:
     dev         Development environment
@@ -198,7 +198,7 @@ verify_deployment() {
     log "Verifying deployment..."
     
     # Check pod status
-    local rate_limiter_pods=$(kubectl get pods -n "$NAMESPACE" -l app.kubernetes.io/name=distributed-rate-limiter --no-headers | wc -l)
+    local rate_limiter_pods=$(kubectl get pods -n "$NAMESPACE" -l app.kubernetes.io/name=sentinelflow --no-headers | wc -l)
     local redis_pods=$(kubectl get pods -n "$NAMESPACE" -l app.kubernetes.io/name=redis --no-headers | wc -l)
     
     log "Rate Limiter pods: $rate_limiter_pods"
@@ -214,7 +214,7 @@ verify_deployment() {
     
     # Check health endpoint
     log "Checking application health..."
-    local rate_limiter_pod=$(kubectl get pods -n "$NAMESPACE" -l app.kubernetes.io/name=distributed-rate-limiter -o jsonpath='{.items[0].metadata.name}')
+    local rate_limiter_pod=$(kubectl get pods -n "$NAMESPACE" -l app.kubernetes.io/name=sentinelflow -o jsonpath='{.items[0].metadata.name}')
     
     local max_attempts=30
     local attempt=1
@@ -243,7 +243,7 @@ show_status() {
     
     log "Deployment Status:"
     echo "===================="
-    kubectl get all -n "$NAMESPACE" -l app.kubernetes.io/part-of=distributed-rate-limiter
+    kubectl get all -n "$NAMESPACE" -l app.kubernetes.io/part-of=sentinelflow
     echo
     log "Ingress Status:"
     kubectl get ingress -n "$NAMESPACE"

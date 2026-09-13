@@ -3,11 +3,11 @@ kind: Namespace
 metadata:
   name: rate-limiter-dev
   labels:
-    app.kubernetes.io/name: distributed-rate-limiter
+    app.kubernetes.io/name: sentinelflow
     app.kubernetes.io/component: namespace
     environment: development
   annotations:
-    description: "Development namespace for distributed rate limiter service"
+    description: "Development namespace for sentinelflow service"
 ---
 apiVersion: v1
 kind: ResourceQuota

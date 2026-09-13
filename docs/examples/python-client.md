@@ -1,6 +1,6 @@
 # Python Client Example
 
-This example shows how to integrate with the Distributed Rate Limiter using Python.
+This example shows how to integrate with the SentinelFlow using Python.
 
 ## Dependencies
 

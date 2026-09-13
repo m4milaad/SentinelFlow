@@ -8,7 +8,7 @@ set -e
 # Configuration
 VERSION="1.4.0"
 RELEASE_DIR="release-artifacts"
-PROJECT_NAME="distributed-rate-limiter"
+PROJECT_NAME="sentinelflow"
 
 # Colors for output
 RED='\033[0;31m'
@@ -50,7 +50,7 @@ echo -e "${BLUE}📋 Creating quick start script...${NC}"
 cat > quick-start.sh << 'EOF'
 #!/bin/bash
 
-# Distributed Rate Limiter v1.4.0 Quick Start
+# SentinelFlow v1.4.0 Quick Start
 # This script helps you start the rate limiter quickly
 
 set -e
@@ -62,7 +62,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-echo -e "${BLUE}🚀 Distributed Rate Limiter v1.4.0 Quick Start${NC}"
+echo -e "${BLUE}🚀 SentinelFlow v1.4.0 Quick Start${NC}"
 echo "=============================================="
 echo ""
 
@@ -106,7 +106,7 @@ echo "⏹️  Press Ctrl+C to stop"
 echo ""
 
 # Start the application
-java -jar distributed-rate-limiter-1.4.0.jar
+java -jar sentinelflow-1.4.0.jar
 EOF
 
 chmod +x quick-start.sh
@@ -115,11 +115,11 @@ chmod +x quick-start.sh
 cat > docker-quick-start.sh << 'EOF'
 #!/bin/bash
 
-# Distributed Rate Limiter v1.4.0 Docker Quick Start
+# SentinelFlow v1.4.0 Docker Quick Start
 
 set -e
 
-echo "🐳 Distributed Rate Limiter v1.4.0 - Docker Quick Start"
+echo "🐳 SentinelFlow v1.4.0 - Docker Quick Start"
 echo "======================================================"
 
 # Check if Docker is available
@@ -156,7 +156,7 @@ services:
       retries: 3
 
   rate-limiter:
-    image: ghcr.io/uppnrise/distributed-rate-limiter:1.4.0
+    image: ghcr.io/m4milaad/sentinelflow:1.4.0
     container_name: rate-limiter-app
     ports:
       - "8080:8080"
@@ -196,7 +196,7 @@ chmod +x docker-quick-start.sh
 
 # Create installation guide
 cat > INSTALLATION.md << 'EOF'
-# Installation Guide - Distributed Rate Limiter v1.4.0
+# Installation Guide - SentinelFlow v1.4.0
 
 ## Quick Installation Options
 
@@ -209,7 +209,7 @@ cat > INSTALLATION.md << 'EOF'
 **Steps:**
 1. Download the JAR file from GitHub Releases
 2. Ensure Redis is running: `docker run -d -p 6379:6379 redis:8-alpine`
-3. Run: `java -jar distributed-rate-limiter-1.4.0.jar`
+3. Run: `java -jar sentinelflow-1.4.0.jar`
 4. Test: `curl http://localhost:8080/actuator/health`
 
 **Quick Start Script:**
@@ -225,7 +225,7 @@ chmod +x quick-start.sh
 
 **Steps:**
 1. Run the Docker quick start script: `./docker-quick-start.sh`
-2. Or manually: `docker run -p 8080:8080 ghcr.io/uppnrise/distributed-rate-limiter:1.4.0`
+2. Or manually: `docker run -p 8080:8080 ghcr.io/m4milaad/sentinelflow:1.4.0`
 
 ### Option 3: Build from Source
 
@@ -236,10 +236,10 @@ chmod +x quick-start.sh
 
 **Steps:**
 ```bash
-git clone https://github.com/uppnrise/distributed-rate-limiter.git
-cd distributed-rate-limiter
+git clone https://github.com/m4milaad/sentinelflow.git
+cd sentinelflow
 ./mvnw clean install
-java -jar target/distributed-rate-limiter-1.4.0.jar
+java -jar target/sentinelflow-1.4.0.jar
 ```
 
 ## Configuration
@@ -248,7 +248,7 @@ java -jar target/distributed-rate-limiter-1.4.0.jar
 The application uses sensible defaults but can be customized:
 
 ```bash
-java -jar distributed-rate-limiter-1.4.0.jar \
+java -jar sentinelflow-1.4.0.jar \
   --spring.data.redis.host=your-redis-host \
   --spring.data.redis.port=6379 \
   --server.port=8080
@@ -259,7 +259,7 @@ java -jar distributed-rate-limiter-1.4.0.jar \
 export SPRING_DATA_REDIS_HOST=your-redis-host
 export SPRING_DATA_REDIS_PORT=6379
 export SERVER_PORT=8080
-java -jar distributed-rate-limiter-1.4.0.jar
+java -jar sentinelflow-1.4.0.jar
 ```
 
 ### Configuration File
@@ -314,7 +314,7 @@ java -version
 **Issue**: Port 8080 already in use
 **Solution**: Use a different port
 ```bash
-java -jar distributed-rate-limiter-1.4.0.jar --server.port=8081
+java -jar sentinelflow-1.4.0.jar --server.port=8081
 ```
 
 ### Getting Help
@@ -329,7 +329,7 @@ cd ..
 
 # Create release notes
 cat > ${RELEASE_DIR}/RELEASE_NOTES.md << 'EOF'
-# Distributed Rate Limiter v1.4.0 - Release Notes
+# SentinelFlow v1.4.0 - Release Notes
 
 Release date: 2026-09-05
 
@@ -374,13 +374,13 @@ Release date: 2026-09-05
 ### JAR File (Recommended)
 ```bash
 # Download and run
-wget https://github.com/uppnrise/distributed-rate-limiter/releases/download/v1.4.0/distributed-rate-limiter-1.4.0.jar
-java -jar distributed-rate-limiter-1.4.0.jar
+wget https://github.com/m4milaad/sentinelflow/releases/download/v1.4.0/sentinelflow-1.4.0.jar
+java -jar sentinelflow-1.4.0.jar
 ```
 
 ### Docker
 ```bash
-docker run -p 8080:8080 ghcr.io/uppnrise/distributed-rate-limiter:1.4.0
+docker run -p 8080:8080 ghcr.io/m4milaad/sentinelflow:1.4.0
 ```
 
 ### Quick Start Scripts
@@ -394,8 +394,8 @@ docker run -p 8080:8080 ghcr.io/uppnrise/distributed-rate-limiter:1.4.0
 - **2GB RAM minimum** for production usage
 
 ## File Checksums
-- **SHA256**: See `distributed-rate-limiter-1.4.0.jar.sha256`
-- **MD5**: See `distributed-rate-limiter-1.4.0.jar.md5`
+- **SHA256**: See `sentinelflow-1.4.0.jar.sha256`
+- **MD5**: See `sentinelflow-1.4.0.jar.md5`
 
 ## Breaking Changes
 None. This release is intended as a drop-in upgrade from `v1.3.2`.
@@ -434,7 +434,7 @@ echo -e "${BLUE}🔐 Checksums:${NC}"
 cat "${RELEASE_DIR}"/*.sha256
 echo ""
 echo -e "${BLUE}🚀 Next steps:${NC}"
-echo "1. Go to: https://github.com/uppnrise/distributed-rate-limiter/releases"
+echo "1. Go to: https://github.com/m4milaad/sentinelflow/releases"
 echo "2. Click 'Create a new release'"
 echo "3. Tag: v${VERSION}"
 echo "4. Upload all files from ${RELEASE_DIR}/"

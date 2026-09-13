@@ -24,7 +24,7 @@ patchesStrategicMerge:
 - ingress-patch.yaml
 
 images:
-- name: ghcr.io/uppnrise/distributed-rate-limiter
+- name: ghcr.io/m4milaad/sentinelflow
   newTag: v1.3.1  # Use specific version tags in production
 
 configMapGenerator:
@@ -39,7 +39,7 @@ configMapGenerator:
     ratelimiter.refillRate=2
     management.endpoints.web.exposure.include=health,metrics,prometheus,info
     management.endpoint.health.show-details=when-authorized
-    logging.level.dev.bnacar.distributedratelimiter=INFO
+    logging.level.io.sentinelflow=INFO
 
 secretGenerator:
 - name: rate-limiter-secrets

@@ -1,6 +1,6 @@
 # API Reference Documentation
 
-This document provides comprehensive documentation for all available endpoints in the Distributed Rate Limiter API.
+This document provides comprehensive documentation for all available endpoints in the SentinelFlow API.
 
 ## Table of Contents
 
@@ -739,4 +739,4 @@ case $http_code in
 esac
 ```
 
-This API reference provides comprehensive documentation for integrating with the Distributed Rate Limiter service. For interactive exploration of the API, visit the Swagger UI at `/swagger-ui/index.html` when the service is running.
+This API reference provides comprehensive documentation for integrating with the SentinelFlow service. For interactive exploration of the API, visit the Swagger UI at `/swagger-ui/index.html` when the service is running.

@@ -1,6 +1,6 @@
 # Java/Spring Boot Integration
 
-This example demonstrates how to integrate the Distributed Rate Limiter into a Java Spring Boot application.
+This example demonstrates how to integrate the SentinelFlow into a Java Spring Boot application.
 
 ## Dependencies
 

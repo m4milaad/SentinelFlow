@@ -1,9 +1,9 @@
 {
-  "name": "distributed-rate-limiter-dashboard",
+  "name": "sentinelflow-dashboard",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Interactive web dashboard for Distributed Rate Limiter - demonstrating all rate limiting algorithms with real-time monitoring",
+  "description": "Interactive web dashboard for SentinelFlow - demonstrating all rate limiting algorithms with real-time monitoring",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

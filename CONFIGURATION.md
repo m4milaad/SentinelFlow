@@ -1,6 +1,6 @@
 # Configuration Management
 
-The distributed rate limiter supports flexible configuration management with per-key overrides, pattern-based configurations, and dynamic reloading.
+The sentinelflow supports flexible configuration management with per-key overrides, pattern-based configurations, and dynamic reloading.
 
 ## Configuration Hierarchy
 

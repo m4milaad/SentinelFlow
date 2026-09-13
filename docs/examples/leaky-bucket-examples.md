@@ -206,7 +206,7 @@ When running with Redis, leaky bucket queues are shared across instances:
 export SPRING_PROFILES_ACTIVE=redis
 
 # Start application
-java -jar target/distributed-rate-limiter-1.0.0.jar
+java -jar target/sentinelflow-1.0.0.jar
 
 # All instances share the same queue state
 curl -X POST http://localhost:8080/api/ratelimit/check \

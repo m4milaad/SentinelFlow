@@ -1,6 +1,6 @@
 # Go Client Example
 
-This document provides a Go client implementation for the Distributed Rate Limiter API.
+This document provides a Go client implementation for the SentinelFlow API.
 
 ## Simple HTTP Client
 

@@ -1,6 +1,6 @@
 # Geographic Rate Limiting
 
-This documentation describes the geographic rate limiting feature implementation for the distributed rate limiter.
+This documentation describes the geographic rate limiting feature implementation for the sentinelflow.
 
 ## Overview
 

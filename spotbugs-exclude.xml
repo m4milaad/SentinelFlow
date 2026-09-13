@@ -7,62 +7,62 @@
         <Or>
             <!-- Spring Services with @Autowired constructors - dependency injection -->
             <And>
-                <Class name="dev.bnacar.distributedratelimiter.security.ApiKeyService"/>
+                <Class name="io.sentinelflow.security.ApiKeyService"/>
                 <Method name="&lt;init&gt;"/>
             </And>
             <And>
-                <Class name="dev.bnacar.distributedratelimiter.security.IpSecurityService"/>
+                <Class name="io.sentinelflow.security.IpSecurityService"/>
                 <Method name="&lt;init&gt;"/>
             </And>
             <And>
-                <Class name="dev.bnacar.distributedratelimiter.security.SecurityFilter"/>
+                <Class name="io.sentinelflow.security.SecurityFilter"/>
                 <Method name="&lt;init&gt;"/>
             </And>
             <And>
-                <Class name="dev.bnacar.distributedratelimiter.ratelimit.RateLimiterService"/>
+                <Class name="io.sentinelflow.ratelimit.RateLimiterService"/>
                 <Method name="&lt;init&gt;"/>
             </And>
             <And>
-                <Class name="dev.bnacar.distributedratelimiter.ratelimit.RedisRateLimiterBackend"/>
+                <Class name="io.sentinelflow.ratelimit.RedisRateLimiterBackend"/>
                 <Method name="&lt;init&gt;"/>
             </And>
             <And>
-                <Class name="dev.bnacar.distributedratelimiter.ratelimit.RedisTokenBucket"/>
+                <Class name="io.sentinelflow.ratelimit.RedisTokenBucket"/>
                 <Method name="&lt;init&gt;"/>
             </And>
             <!-- Spring Configuration classes - dependency injection -->
             <And>
-                <Class name="dev.bnacar.distributedratelimiter.config.FilterConfiguration"/>
+                <Class name="io.sentinelflow.config.FilterConfiguration"/>
                 <Method name="&lt;init&gt;"/>
             </And>
             <!-- Spring Controllers with dependency injection -->
             <And>
-                <Class name="dev.bnacar.distributedratelimiter.controller.AdminController"/>
+                <Class name="io.sentinelflow.controller.AdminController"/>
                 <Method name="&lt;init&gt;"/>
             </And>
             <And>
-                <Class name="dev.bnacar.distributedratelimiter.controller.BenchmarkController"/>
+                <Class name="io.sentinelflow.controller.BenchmarkController"/>
                 <Method name="&lt;init&gt;"/>
             </And>
             <And>
-                <Class name="dev.bnacar.distributedratelimiter.controller.MetricsController"/>
+                <Class name="io.sentinelflow.controller.MetricsController"/>
                 <Method name="&lt;init&gt;"/>
             </And>
             <And>
-                <Class name="dev.bnacar.distributedratelimiter.controller.RateLimitConfigController"/>
+                <Class name="io.sentinelflow.controller.RateLimitConfigController"/>
                 <Method name="&lt;init&gt;"/>
             </And>
             <And>
-                <Class name="dev.bnacar.distributedratelimiter.controller.RateLimitController"/>
+                <Class name="io.sentinelflow.controller.RateLimitController"/>
                 <Method name="&lt;init&gt;"/>
             </And>
             <!-- Service classes with dependency injection -->
             <And>
-                <Class name="dev.bnacar.distributedratelimiter.ratelimit.ConfigurationResolver"/>
+                <Class name="io.sentinelflow.ratelimit.ConfigurationResolver"/>
                 <Method name="&lt;init&gt;"/>
             </And>
             <And>
-                <Class name="dev.bnacar.distributedratelimiter.ratelimit.DistributedRateLimiterService"/>
+                <Class name="io.sentinelflow.ratelimit.SentinelFlowService"/>
                 <Method name="&lt;init&gt;"/>
             </And>
         </Or>
@@ -72,6 +72,6 @@
     <!-- These classes need to work with Spring's property binding mechanism -->
     <Match>
         <Bug pattern="EI_EXPOSE_REP,EI_EXPOSE_REP2"/>
-        <Class name="dev.bnacar.distributedratelimiter.config.SecurityConfiguration"/>
+        <Class name="io.sentinelflow.config.SecurityConfiguration"/>
     </Match>
 </FindBugsFilter>

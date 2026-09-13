@@ -21,7 +21,7 @@ services:
       app:
         condition: service_healthy
     networks:
-      - rate-limiter-network
+      - sentinelflow-network
 
   grafana:
     image: grafana/grafana:latest
@@ -39,7 +39,7 @@ services:
     depends_on:
       - prometheus
     networks:
-      - rate-limiter-network
+      - sentinelflow-network
 
 volumes:
   prometheus-data:

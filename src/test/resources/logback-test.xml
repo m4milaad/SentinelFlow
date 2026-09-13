@@ -8,9 +8,9 @@
     </appender>
 
     <!-- Reduce log levels for performance tests -->
-    <logger name="dev.bnacar.distributedratelimiter.ratelimit.RateLimiterService" level="ERROR" />
-    <logger name="dev.bnacar.distributedratelimiter.monitoring.MetricsService" level="ERROR" />
-    <logger name="dev.bnacar.distributedratelimiter.geo" level="INFO" />
+    <logger name="io.sentinelflow.ratelimit.RateLimiterService" level="ERROR" />
+    <logger name="io.sentinelflow.monitoring.MetricsService" level="ERROR" />
+    <logger name="io.sentinelflow.geo" level="INFO" />
     
     <!-- Quiet down Spring Boot during tests -->
     <logger name="org.springframework" level="WARN" />

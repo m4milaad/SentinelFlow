@@ -1,6 +1,6 @@
 # Architecture Decision Records (ADRs)
 
-This directory contains Architecture Decision Records documenting key design decisions made during the development of the Distributed Rate Limiter.
+This directory contains Architecture Decision Records documenting key design decisions made during the development of the SentinelFlow.
 
 ## Index
 

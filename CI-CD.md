@@ -1,6 +1,6 @@
 # CI/CD Pipeline Documentation
 
-This document describes the CI/CD pipeline setup for the Distributed Rate Limiter project.
+This document describes the CI/CD pipeline setup for the SentinelFlow project.
 
 ## Pipeline Overview
 
@@ -105,7 +105,7 @@ To run the same checks locally:
 
 ## Pipeline Tests
 
-The pipeline includes validation tests in `src/test/java/dev/bnacar/distributedratelimiter/pipeline/`:
+The pipeline includes validation tests in `src/test/java/dev/m4milaad/sentinelflow/pipeline/`:
 
 - `PipelineValidationTest` - Validates pipeline configuration and file structure
 - `DockerImageTest` - Tests Docker configuration and image requirements

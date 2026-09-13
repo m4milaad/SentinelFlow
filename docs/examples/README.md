@@ -1,6 +1,6 @@
 # API Usage Examples
 
-This directory contains code examples demonstrating how to integrate with the Distributed Rate Limiter API in various programming languages.
+This directory contains code examples demonstrating how to integrate with the SentinelFlow API in various programming languages.
 
 ## 🎨 Interactive Web Dashboard
 

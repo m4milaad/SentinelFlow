@@ -23,7 +23,7 @@ data:
         annotations:
           summary: "Rate Limiter service is down"
           description: "Rate Limiter service {{ $labels.kubernetes_pod_name }} in namespace {{ $labels.kubernetes_namespace }} has been down for more than 1 minute."
-          runbook_url: "https://github.com/uppnrise/distributed-rate-limiter/blob/main/docs/runbook.md#rate-limiter-down"
+          runbook_url: "https://github.com/m4milaad/sentinelflow/blob/main/docs/runbook.md#rate-limiter-down"
           
       - alert: RateLimiterHighLatency
         expr: histogram_quantile(0.95, rate(http_request_duration_seconds_bucket{job="rate-limiter"}[5m])) > 0.5
@@ -34,7 +34,7 @@ data:
         annotations:
           summary: "High latency detected in Rate Limiter"
           description: "95th percentile latency is {{ $value }}s for Rate Limiter in namespace {{ $labels.kubernetes_namespace }}"
-          runbook_url: "https://github.com/uppnrise/distributed-rate-limiter/blob/main/docs/runbook.md#high-latency"
+          runbook_url: "https://github.com/m4milaad/sentinelflow/blob/main/docs/runbook.md#high-latency"
           
       - alert: RateLimiterHighErrorRate
         expr: rate(http_requests_total{job="rate-limiter",status=~"5.."}[5m]) / rate(http_requests_total{job="rate-limiter"}[5m]) > 0.1
@@ -45,7 +45,7 @@ data:
         annotations:
           summary: "High error rate in Rate Limiter"
           description: "Error rate is {{ $value | humanizePercentage }} for Rate Limiter in namespace {{ $labels.kubernetes_namespace }}"
-          runbook_url: "https://github.com/uppnrise/distributed-rate-limiter/blob/main/docs/runbook.md#high-error-rate"
+          runbook_url: "https://github.com/m4milaad/sentinelflow/blob/main/docs/runbook.md#high-error-rate"
           
       - alert: RateLimiterHighCPU
         expr: rate(process_cpu_seconds_total{job="rate-limiter"}[5m]) * 100 > 80
@@ -56,7 +56,7 @@ data:
         annotations:
           summary: "High CPU usage in Rate Limiter"
           description: "CPU usage is {{ $value }}% for Rate Limiter {{ $labels.kubernetes_pod_name }}"
-          runbook_url: "https://github.com/uppnrise/distributed-rate-limiter/blob/main/docs/runbook.md#high-cpu"
+          runbook_url: "https://github.com/m4milaad/sentinelflow/blob/main/docs/runbook.md#high-cpu"
           
       - alert: RateLimiterHighMemory
         expr: jvm_memory_used_bytes{job="rate-limiter",area="heap"} / jvm_memory_max_bytes{job="rate-limiter",area="heap"} > 0.9
@@ -67,7 +67,7 @@ data:
         annotations:
           summary: "High memory usage in Rate Limiter"
           description: "Memory usage is {{ $value | humanizePercentage }} for Rate Limiter {{ $labels.kubernetes_pod_name }}"
-          runbook_url: "https://github.com/uppnrise/distributed-rate-limiter/blob/main/docs/runbook.md#high-memory"
+          runbook_url: "https://github.com/m4milaad/sentinelflow/blob/main/docs/runbook.md#high-memory"
           
       # Redis Health Rules
       - alert: RedisDown
@@ -79,7 +79,7 @@ data:
         annotations:
           summary: "Redis is down"
           description: "Redis service {{ $labels.kubernetes_pod_name }} in namespace {{ $labels.kubernetes_namespace }} has been down for more than 1 minute."
-          runbook_url: "https://github.com/uppnrise/distributed-rate-limiter/blob/main/docs/runbook.md#redis-down"
+          runbook_url: "https://github.com/m4milaad/sentinelflow/blob/main/docs/runbook.md#redis-down"
           
       - alert: RedisHighMemoryUsage
         expr: redis_memory_used_bytes{job="redis"} / redis_memory_max_bytes{job="redis"} > 0.9
@@ -90,7 +90,7 @@ data:
         annotations:
           summary: "Redis high memory usage"
           description: "Redis memory usage is {{ $value | humanizePercentage }} in namespace {{ $labels.kubernetes_namespace }}"
-          runbook_url: "https://github.com/uppnrise/distributed-rate-limiter/blob/main/docs/runbook.md#redis-high-memory"
+          runbook_url: "https://github.com/m4milaad/sentinelflow/blob/main/docs/runbook.md#redis-high-memory"
           
       - alert: RedisConnectionPoolExhausted
         expr: lettuce_command_pool_active{job="rate-limiter"} / lettuce_command_pool_max{job="rate-limiter"} > 0.9
@@ -101,7 +101,7 @@ data:
         annotations:
           summary: "Redis connection pool nearly exhausted"
           description: "Redis connection pool usage is {{ $value | humanizePercentage }} for Rate Limiter {{ $labels.kubernetes_pod_name }}"
-          runbook_url: "https://github.com/uppnrise/distributed-rate-limiter/blob/main/docs/runbook.md#redis-pool-exhausted"
+          runbook_url: "https://github.com/m4milaad/sentinelflow/blob/main/docs/runbook.md#redis-pool-exhausted"
           
       # Rate Limiting Rules  
       - alert: HighRateLimitViolations
@@ -113,7 +113,7 @@ data:
         annotations:
           summary: "High rate limit violations"
           description: "Rate limit violations are {{ $value }}/sec for Rate Limiter in namespace {{ $labels.kubernetes_namespace }}"
-          runbook_url: "https://github.com/uppnrise/distributed-rate-limiter/blob/main/docs/runbook.md#high-violations"
+          runbook_url: "https://github.com/m4milaad/sentinelflow/blob/main/docs/runbook.md#high-violations"
           
       - alert: SuspiciousRateLimitActivity
         expr: rate(rate_limiter_requests_denied_total{job="rate-limiter"}[1m]) > 1000
@@ -124,4 +124,4 @@ data:
         annotations:
           summary: "Suspicious rate limit activity detected"
           description: "Extremely high rate limit violations: {{ $value }}/sec for Rate Limiter in namespace {{ $labels.kubernetes_namespace }}. Possible attack."
-          runbook_url: "https://github.com/uppnrise/distributed-rate-limiter/blob/main/docs/runbook.md#suspicious-activity"
+          runbook_url: "https://github.com/m4milaad/sentinelflow/blob/main/docs/runbook.md#suspicious-activity"

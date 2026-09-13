@@ -1,7 +1,7 @@
 {
   "dashboard": {
     "id": null,
-    "title": "Distributed Rate Limiter",
+    "title": "SentinelFlow",
     "tags": ["rate-limiter", "distributed", "redis"],
     "style": "dark",
     "timezone": "browser",

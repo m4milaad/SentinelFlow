@@ -1,6 +1,6 @@
-# Operations Runbook - Distributed Rate Limiter
+# Operations Runbook - SentinelFlow
 
-This runbook provides step-by-step procedures for operating and troubleshooting the Distributed Rate Limiter service in production.
+This runbook provides step-by-step procedures for operating and troubleshooting the SentinelFlow service in production.
 
 ## Table of Contents
 
@@ -16,9 +16,9 @@ This runbook provides step-by-step procedures for operating and troubleshooting 
 ## Quick Reference
 
 ### Service Overview
-- **Application**: Distributed Rate Limiter
+- **Application**: SentinelFlow
 - **Purpose**: Token bucket based rate limiting with Redis backend
-- **Repository**: https://github.com/uppnrise/distributed-rate-limiter
+- **Repository**: https://github.com/m4milaad/sentinelflow
 - **Monitoring**: Grafana Dashboard, Prometheus Alerts
 
 ### Key Endpoints
@@ -81,10 +81,10 @@ This runbook provides step-by-step procedures for operating and troubleshooting 
 **Investigation Steps**:
 ```bash
 # Check pod status
-kubectl get pods -n rate-limiter -l app.kubernetes.io/name=distributed-rate-limiter
+kubectl get pods -n rate-limiter -l app.kubernetes.io/name=sentinelflow
 
 # Check pod logs
-kubectl logs -n rate-limiter -l app.kubernetes.io/name=distributed-rate-limiter --tail=100
+kubectl logs -n rate-limiter -l app.kubernetes.io/name=sentinelflow --tail=100
 
 # Check service and ingress
 kubectl get svc,ingress -n rate-limiter
@@ -155,13 +155,13 @@ kubectl patch deployment rate-limiter -n rate-limiter -p '{"spec":{"template":{"
 **Investigation Steps**:
 ```bash
 # Check error logs
-kubectl logs -n rate-limiter -l app.kubernetes.io/name=distributed-rate-limiter | grep ERROR
+kubectl logs -n rate-limiter -l app.kubernetes.io/name=sentinelflow | grep ERROR
 
 # Check Redis connectivity
 kubectl exec -n rate-limiter redis-pod -- redis-cli ping
 
 # Check rate limiting violations
-kubectl logs -n rate-limiter -l app.kubernetes.io/name=distributed-rate-limiter | grep "Rate limit VIOLATED"
+kubectl logs -n rate-limiter -l app.kubernetes.io/name=sentinelflow | grep "Rate limit VIOLATED"
 ```
 
 **Common Causes & Solutions**:
@@ -243,7 +243,7 @@ kubectl patch configmap rate-limiter-config -n rate-limiter --patch '{"data":{"a
 **Investigation Steps**:
 ```bash
 # Check top rate limited keys
-kubectl logs -n rate-limiter -l app.kubernetes.io/name=distributed-rate-limiter | grep "VIOLATED" | awk '{print $NF}' | sort | uniq -c | sort -nr | head -10
+kubectl logs -n rate-limiter -l app.kubernetes.io/name=sentinelflow | grep "VIOLATED" | awk '{print $NF}' | sort | uniq -c | sort -nr | head -10
 
 # Check ingress logs for source IPs
 kubectl logs -n ingress-nginx -l app.kubernetes.io/name=ingress-nginx | grep rate-limiter

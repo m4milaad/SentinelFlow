@@ -1,4 +1,4 @@
-// Real API Service for Distributed Rate Limiter Backend
+// Real API Service for SentinelFlow Backend
 
 // Use relative URLs in development (Vite proxy) and production (same origin)
 // In development, Vite proxy forwards /api/* and /actuator/* to http://localhost:8080

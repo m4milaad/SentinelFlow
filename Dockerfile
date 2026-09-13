@@ -1,4 +1,4 @@
-# Multi-stage Docker build for Distributed Rate Limiter
+# Multi-stage Docker build for SentinelFlow
 # Build stage
 FROM eclipse-temurin:21.0.11_10-jdk AS build
 

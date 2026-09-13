@@ -1,6 +1,6 @@
 # Node.js Client Example
 
-This example demonstrates how to integrate the Distributed Rate Limiter with Node.js applications.
+This example demonstrates how to integrate the SentinelFlow with Node.js applications.
 
 ## Dependencies
 

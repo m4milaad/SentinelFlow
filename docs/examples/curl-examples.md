@@ -1,6 +1,6 @@
 # cURL Examples
 
-This document provides cURL command examples for testing the Distributed Rate Limiter API.
+This document provides cURL command examples for testing the SentinelFlow API.
 
 ## Basic Rate Limit Check
 
@@ -510,7 +510,7 @@ curl -X POST http://localhost:8080/api/ratelimit/check \
 BASE_URL="http://localhost:8080"
 API_KEY="your-api-key"
 
-echo "=== Distributed Rate Limiter API Test Suite ==="
+echo "=== SentinelFlow API Test Suite ==="
 
 # Test 1: Basic rate limit check
 echo "Test 1: Basic rate limit check"

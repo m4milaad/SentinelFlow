@@ -1,4 +1,4 @@
-# Distributed Rate Limiter v1.3.0 Release Notes
+# SentinelFlow v1.3.0 Release Notes
 
 Release date: 2026-05-05
 
@@ -40,7 +40,7 @@ Release date: 2026-05-05
 
 ## Validation
 
-- `docker build -t distributed-rate-limiter:temurin-pin-test .`
+- `docker build -t sentinelflow:temurin-pin-test .`
 - `./mvnw -q test`
 - Dashboard security and lint maintenance had already been validated before merge with:
   - `npm run build`

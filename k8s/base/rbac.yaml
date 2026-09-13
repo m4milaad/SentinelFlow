@@ -4,6 +4,6 @@ metadata:
   name: rate-limiter
   namespace: rate-limiter
   labels:
-    app.kubernetes.io/name: distributed-rate-limiter
+    app.kubernetes.io/name: sentinelflow
     app.kubernetes.io/component: serviceaccount
 automountServiceAccountToken: false

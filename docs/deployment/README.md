@@ -1,6 +1,6 @@
 # Deployment Guide
 
-This guide covers various deployment options for the Distributed Rate Limiter service.
+This guide covers various deployment options for the SentinelFlow service.
 
 ## Table of Contents
 
@@ -35,8 +35,8 @@ This guide covers various deployment options for the Distributed Rate Limiter se
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/uppnrise/distributed-rate-limiter.git
-   cd distributed-rate-limiter
+   git clone https://github.com/m4milaad/sentinelflow.git
+   cd sentinelflow
    ```
 
 2. **Start Redis using Docker**:
@@ -73,7 +73,7 @@ ratelimiter.capacity=100
 ratelimiter.refillRate=20
 
 # Logging
-logging.level.dev.bnacar.distributedratelimiter=DEBUG
+logging.level.io.sentinelflow=DEBUG
 logging.level.org.springframework.data.redis=DEBUG
 
 # Actuator endpoints (all enabled for development)
@@ -521,7 +521,7 @@ groups:
 Enable debug logging for troubleshooting:
 
 ```properties
-logging.level.dev.bnacar.distributedratelimiter=DEBUG
+logging.level.io.sentinelflow=DEBUG
 logging.level.org.springframework.data.redis=DEBUG
 logging.pattern.console=%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
 ```

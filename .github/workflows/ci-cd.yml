@@ -304,7 +304,7 @@ jobs:
     - name: Start application for load testing
       run: |
         ./mvnw clean package -DskipTests
-        java -jar target/distributed-rate-limiter-*.jar &
+        java -jar target/sentinelflow-*.jar &
         echo $! > app.pid
         sleep 30  # Wait for application to start
       env:
@@ -316,7 +316,7 @@ jobs:
         
     - name: Run basic load test
       run: |
-        ./mvnw gatling:test -Dgatling.simulationClass=dev.bnacar.distributedratelimiter.loadtest.BasicLoadTest
+        ./mvnw gatling:test -Dgatling.simulationClass=io.sentinelflow.loadtest.BasicLoadTest
       env:
         LOAD_TEST_BASE_URL: http://localhost:8080
         LOAD_TEST_DURATION: 30
@@ -327,7 +327,7 @@ jobs:
     - name: Run stress test (on main branch only)
       if: github.ref == 'refs/heads/main'
       run: |
-        ./mvnw gatling:test -Dgatling.simulationClass=dev.bnacar.distributedratelimiter.loadtest.StressTest
+        ./mvnw gatling:test -Dgatling.simulationClass=io.sentinelflow.loadtest.StressTest
       env:
         STRESS_TEST_BASE_URL: http://localhost:8080
         STRESS_TEST_DURATION: 60
